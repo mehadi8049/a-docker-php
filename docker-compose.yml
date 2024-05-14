@@ -1,0 +1,22 @@
+services:
+  laravel-php-apache-environment:
+    build: .
+    image: custom-laravel-php
+    volumes:
+      - ./doc-root:/var/www/html/
+    ports:
+      - 8090:80
+  mysql_db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: taravel_docker
+    ports:
+    - 3307:3306
+  
+  phpmyadmin:
+    image: phpmyadmin:latest
+    ports:
+      - 9001:80
+    environment:
+      - PMA_ARBITRARY=1
