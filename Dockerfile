@@ -6,11 +6,9 @@ WORKDIR /var/www/html
 
 RUN a2enmod rewrite
 
-RUN apt-get update -y && apt-get install -y libicu-dev unzip zip build-essential wget curl git && rm -rf /var/lib/apt/lists/*
+RUN apt-get update -y && apt-get install -y libicu-dev unzip zip build-essential wget curl nano git && rm -rf /var/lib/apt/lists/*
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
 
-# Set the environment variables for nvm
-ENV NVM_DIR /root/.nvm
 
 #Installing apache in non-interactive mode
 ARG DEBIAN_FRONTEND=noninteractive
